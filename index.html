@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DataTables Example</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+</head>
+<body>
+<main>
+
+<h1>КОМАНДА #43 FRONT_END DEMO</h1>
+
+<div id="Create">
+<table id="defectsTable" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>GTIN</th>
+        <th>Defect Level</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+</div>
+
+<div id="Create_1">
+<table id="defectsTable_1" class="display" style="width:100%">
+        <thead>
+        <tr>
+            <th>ID TABLE 2</th>
+            <th>GTIN</th>
+            <th>PRICE MIN</th>
+            <th>PRICE MAX</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+<div id="Create_2">
+    <table id="defectsTable_2" class="display" style="width:100%">
+        <thead>
+        <tr>
+            <th>ID TABLE 3</th>
+            <th>GTIN</th>
+            <th>revenue</th>
+            <th>share</th>
+            <th>share_cum</th>
+            <th>ABC</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+<!--    <div class="game-changer"  style="display:none">-->
+<!--        <div><a href="index.html" id="active-table">dataprofit_defects</a></div>-->
+<!--        <div><a href="table2.html">table2_placeholder</a></div>-->
+<!--        <div><a href="table3.html">table3_placeholder</a></div>-->
+<!--    </div>-->
+
+    <div class="table-button">
+        <input type="button" id="btn" value="dataprodit_defects" class="disable_btn">
+        <input type="button" id="btn1" value="point_max_price" class="disable_btn">
+        <input type="button" id="btn2" value="ABC_group" class="disable_btn">
+    </div>
+
+
+</main>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $.getJSON("dataprofit_defect.json", function(data) {
+            var table = $("#defectsTable").DataTable({
+                data: data,
+                columns: [
+                    { data: "id" },
+                    { data: "gtin" },
+                    { data: "defect_lvl" }
+                ]
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $.getJSON("point_max_price.json", function(data) {
+            var table = $("#defectsTable_1").DataTable({
+                data: data,
+                columns: [
+                    { data: "FIELD1" },
+                    { data: "gtin" },
+                    { data: "price_min" },
+                    { data: "price_max" }
+                ]
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $.getJSON("ABC_group.json", function(data) {
+            var table = $("#defectsTable_2").DataTable({
+                data: data,
+                columns: [
+                    { data: "FIELD1" },
+                    { data: "gtin" },
+                    { data: "revenue" },
+                    { data: "share" },
+                    { data: "share_cum" },
+                    { data: "ABC" }
+                ]
+            });
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
+    var btn = document.getElementById("btn");
+    btn.addEventListener("click", function() {
+        this.classList.add("active_btn");
+        this.classList.remove('disable_btn');
+        var block = document.getElementById("Create");
+        block.style.display = 'block'
+        var block = document.getElementById("Create_1");
+        block.style.display = 'none'
+        var block = document.getElementById("Create_2");
+        block.style.display = 'none'
+        var btn1 = document.getElementById("btn1");
+        btn1.classList.remove('active_btn');
+        btn1.classList.add("disable_btn");
+        var btn2 = document.getElementById("btn2");
+        btn2.classList.remove('active_btn');
+        btn2.classList.add("disable_btn")
+    });
+</script>
+
+<script type="text/javascript">
+    var btn = document.getElementById("btn1");
+    btn.addEventListener("click", function() {
+        this.classList.add("active_btn");
+        this.classList.remove('disable_btn');
+        var block = document.getElementById("Create_1");
+        block.style.display = 'block'
+        var block = document.getElementById("Create");
+        block.style.display = 'none'
+        var block = document.getElementById("Create_2");
+        block.style.display = 'none'
+        var btn1 = document.getElementById("btn");
+        btn1.classList.remove('active_btn');
+        btn1.classList.add("disable_btn");
+        var btn2 = document.getElementById("btn2");
+        btn2.classList.remove('active_btn');
+        btn2.classList.add("disable_btn")
+    });
+</script>
+
+<script type="text/javascript">
+    var btn = document.getElementById("btn2");
+    btn.addEventListener("click", function() {
+        this.classList.add("active_btn");
+        this.classList.remove('disable_btn');
+        var block = document.getElementById("Create_2");
+        block.style.display = 'block'
+        var block = document.getElementById("Create_1");
+        block.style.display = 'none'
+        var block = document.getElementById("Create");
+        block.style.display = 'none'
+        var btn1 = document.getElementById("btn");
+        btn1.classList.remove('active_btn');
+        btn1.classList.add("disable_btn");
+        var btn2 = document.getElementById("btn1");
+        btn2.classList.remove('active_btn');
+        btn2.classList.add("disable_btn")
+    });
+</script>
+
+
+<style>
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        background: #1948ff;
+        border-color: #1948ff;
+        color: white!important; /*change the hover text color*/
+        transition: .25s;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button{
+        border-radius: 0px;
+        transition: .25s;
+    }
+
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:active {
+        /*background: none;*/
+        color: black!important;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+        color: white !important;
+        border: none;
+        background: #0033ff;
+    }
+
+    table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
+        background-color: #ffffff;
+    }
+
+    table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.stripe tbody tr.odd > .sorting_1 {
+        background-color: #ffffff;
+    }
+
+    table.dataTable tbody tr {
+        background-color: #f8f8f8;
+    }
+
+    table.dataTable.display tbody tr.even > .sorting_1, table.dataTable.order-column.stripe tbody tr.even > .sorting_1 {
+        background-color: #f8f8f8;
+    }
+
+    table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
+        border-top: none;}
+
+    thead, th {
+        text-align: left;
+        padding-left: 10px !important;
+    }
+
+</style>
+</body>
+</html>

@@ -1,0 +1,96 @@
+/*-------------------reset css-------------------*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Manrope', sans-serif;
+    -webkit-box-sizing: border-box;
+    /*-webkit-appearance: none;*/
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+main{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+main h1{
+    padding: 128px 0 64px 0;
+}
+
+.game-changer{
+    display: flex;
+    margin: 48px 0;
+}
+
+.game-changer a{
+    padding: 14px 20px;
+    margin-right: 24px;
+    /*background: #0033ff;*/
+    color: #0033ff;
+    text-decoration: none;
+    transition: .25s;
+}
+
+.game-changer a:hover{
+    padding: 14px 20px;
+    margin-right: 24px;
+    background: #0033ff;
+    color: white;
+    text-decoration: none;
+    transition: .25s;
+}
+
+.table-button{
+    display: flex;
+    margin-top: 64px;
+}
+
+.disable_btn{
+    -webkit-appearance: none;
+    appearance: none;
+    padding: 14px 32px;
+    margin-right: 24px;
+    background: #0033ff;
+    color: white;
+    text-decoration: none;
+    transition: .25s;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+ .disable_btn:hover{
+    -webkit-appearance: none;
+    appearance: none;
+    padding: 14px 52px;
+    margin-right: 24px;
+    background: white;
+     background: #001d96;
+    text-decoration: none;
+    transition: .25s;
+    border: none;
+     cursor: pointer;
+}
+
+.active_btn{
+    -webkit-appearance: none;
+    appearance: none;
+    padding: 14px 72px;
+    margin-right: 24px;
+    background: #001d96;
+    color: white;
+    text-decoration: none;
+    transition: .25s;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#Create_1{
+    display: none;
+}
+
+#Create_2{
+    display: none;
+}
